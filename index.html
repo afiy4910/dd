@@ -5,38 +5,43 @@
   <title>Image Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<style>
-  :root {
-    --vh: 100vh; /* 초기값 */
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-    overflow: hidden;
-    height: 100%;
-    touch-action: pan-y;
-  }
+  <style>
+    :root {
+      --vh: 100vh;
+    }
 
-  .swiper {
-    width: 100%;
-    height: calc(var(--vh, 100vh)); /* 정확한 높이 반영 */
-  }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      overflow: hidden;
+      height: 100%;
+      touch-action: pan-y;
+    }
 
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-  }
+    body {
+      padding: 0 !important;
+    }
 
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-</style>
+    .swiper {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  </style>
 </head>
 <body>
 
@@ -51,15 +56,21 @@
   </div>
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-  function setViewportHeight() {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
+  <script>
+    function setViewportHeight() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 
-  window.addEventListener('load', setViewportHeight);
-  window.addEventListener('resize', setViewportHeight);
-  window.addEventListener('orientationchange', setViewportHeight);
-</script>
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+    window.addEventListener('load', setViewportHeight);
+    setViewportHeight();
+
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: false,
+    });
+  </script>
 </body>
 </html>
